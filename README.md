@@ -1,6 +1,6 @@
 # nnvim
 
-My `n`ew `nvim` config.
+My **`n`ew** `nvim` config.
 
 ## Get started
 
