@@ -21,7 +21,7 @@ As a separate config:
 git clone https://github.com/calvin-barker/nnvim ~/.config/nnvim
 
 # Create an alias for `nnvim`
-cat "alias nnvim='NVIM_APPNAME=nnvim nvim'" >> ~/.zshrc
+echo "alias nnvim='NVIM_APPNAME=nnvim nvim'" >> ~/.zshrc
 
 # Start Neovim.
 nnvim
