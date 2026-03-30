@@ -32,3 +32,5 @@ opt.spelllang = {"en_us"}
 opt.conceallevel = 0
 
 opt.undofile = true
+
+vim.cmd.colorscheme("sorbet")
