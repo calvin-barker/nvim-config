@@ -2,7 +2,7 @@
 
 My **`n`ew** `nvim` config.
 
-## Get started
+## Getting Started
 
 As the default `nvim` config:
 
@@ -14,7 +14,7 @@ git clone https://github.com/calvin-barker/nnvim ~/.config/nvim
 nvim
 ```
 
-As a separate config:
+As a separate `nvim` configuration:
 
 ```sh
 # Clone the config repo.
@@ -26,3 +26,16 @@ echo "alias nnvim='NVIM_APPNAME=nnvim nvim'" >> ~/.zshrc
 # Start Neovim.
 nnvim
 ```
+
+## Key Mappings
+
+Leader is `<Space>`. Key maps are defined in `lua/config/keymaps.lua` and follow the convention `<leader><namespace><action>`.
+
+| Mapping | Description |
+| --- | --- |
+| `<leader>ts` | Toggle spellcheck |
+| `<leader>tw` | Toggle line wrapping |
+| `<leader>tc` | Toggle markdown conceal |
+| `<leader>w` | Write file |
+| `<leader>q` | Quit window |
+| `<Esc>` | Clear search highlight |
