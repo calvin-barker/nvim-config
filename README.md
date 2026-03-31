@@ -1,6 +1,6 @@
-# nnvim
+# nvim-config
 
-My **`n`ew** `nvim` config.
+My **shiny and new** `nvim` config as of March 2026.
 
 ## Getting Started
 
@@ -29,7 +29,9 @@ nnvim
 
 ## Key Mappings
 
-Leader is `<Space>`. Key maps are defined in `lua/config/keymaps.lua` and follow the convention `<leader><verb><object>`. *I recognize these terms are conceptually the same as "operators" and "motions," but I prefer the familiarity of grammatical terminology.*
+Leader is `<Space>`. Key maps are defined in `lua/config/keymaps.lua` and follow the convention `<leader><verb><object>`.
+
+*I recognize these terms are conceptually the same as "operators" and "motions," but I prefer the familiarity of grammatical terminology.*
 
 | Verb | Key | Definition |
 | --- | --- | --- |
