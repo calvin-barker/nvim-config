@@ -29,7 +29,15 @@ nnvim
 
 ## Key Mappings
 
-Leader is `<Space>`. Key maps are defined in `lua/config/keymaps.lua` and follow the convention `<leader><namespace><action>`.
+Leader is `<Space>`. Key maps are defined in `lua/config/keymaps.lua` and follow the convention `<leader><verb><object>`. *I recognize these terms are conceptually the same as "operators" and "motions," but I prefer the familiarity of grammatical terminology.*
+
+| Verb | Key | Definition |
+| --- | --- | --- |
+| toggle | t | a key or command that toggles between two modes |
+| write | w | enter (data) into an electronic or magnetic storage device, or into a particular location in a computer’s file system |
+| quit | q | stop or discontinue (an action or activity) |
+
+### List of Mappings
 
 | Mapping | Description |
 | --- | --- |

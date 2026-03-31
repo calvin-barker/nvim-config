@@ -29,5 +29,5 @@ map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 map("n", "<leader>w", "<cmd>write<cr>", { desc = "Write file" })
 
 -- In normal mode, quit the window.
-map("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit window" })
+map("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit" })
 

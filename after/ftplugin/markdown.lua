@@ -1,6 +1,3 @@
-vim.opt_local.wrap = true
-vim.opt_local.linebreak = true
-vim.opt_local.breakindent = true
+-- Turn on spellcheck for Markdown files.
+-- Use `z=` on the highlighted words to see suggested replacements.
 vim.opt_local.spell = true
-vim.opt_local.textwidth = 0
-vim.opt_local.conceallevel = 0 
