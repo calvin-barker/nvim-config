@@ -13,9 +13,18 @@ This is a Neovim configuration ("nnvim") — a minimal, plugin-free setup. It ca
 - `lua/config/keymaps.lua` — Key mappings. Leader is `<Space>`. Convention: `<leader><namespace><action>` (e.g., `<leader>t` = toggle namespace).
 - `after/ftplugin/` — Filetype-specific overrides (e.g., `markdown.lua` enables spell, wrap, linebreak).
 
+## External Dependencies
+
+Installed via Homebrew. Keep this list updated when adding features that require external tools.
+
+- `neovim` — editor (0.12+)
+- `harper` — grammar/spell checker LSP for markdown (`harper-ls`)
+- `prettier` — markdown autoformatting
+
 ## Conventions
 
 - Indentation: 2 spaces (tabs expanded), matching the config's own `tabstop`/`shiftwidth`.
 - Keymaps use `vim.keymap.set` with `desc` for discoverability.
 - New keymaps should follow the `<leader><namespace><action>` pattern documented in README.md.
 - Custom highlight colors must be consistent with the `sorbet` colorscheme palette. To find available colors, run `nvim --headless -c "colorscheme sorbet" -c "highlight" -c "q"` and use the `guifg`/`guibg` values from existing highlight groups. Avoid red (`#d75f5f`) for non-error contexts.
+- When adding features that require external tools, document them in the External Dependencies section above.
