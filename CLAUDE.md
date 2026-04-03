@@ -18,3 +18,4 @@ This is a Neovim configuration ("nnvim") — a minimal, plugin-free setup. It ca
 - Indentation: 2 spaces (tabs expanded), matching the config's own `tabstop`/`shiftwidth`.
 - Keymaps use `vim.keymap.set` with `desc` for discoverability.
 - New keymaps should follow the `<leader><namespace><action>` pattern documented in README.md.
+- Custom highlight colors must be consistent with the `sorbet` colorscheme palette. To find available colors, run `nvim --headless -c "colorscheme sorbet" -c "highlight" -c "q"` and use the `guifg`/`guibg` values from existing highlight groups. Avoid red (`#d75f5f`) for non-error contexts.
