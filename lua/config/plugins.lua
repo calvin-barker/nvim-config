@@ -13,49 +13,49 @@ require("neo-tree").setup({
     },
     window = {
       mappings = {
-        ["<bs>"] = "navigate_up",           --TODO: move root dir up one level
-        ["."] = "set_root",              --TODO: set root to selected folder
-        ["/"] = "fuzzy_finder",          --TODO: recursive filter
-        ["D"] = "fuzzy_finder_directory", --TODO: filter directories only
-        ["#"] = "fuzzy_sorter",          --TODO: sort by fzy algorithm
-        ["f"] = "filter_on_submit",      --TODO: apply filter on submit
-        ["<C-c>"] = "clear_filter",          --TODO: clear filter
-        ["H"] = "toggle_hidden",         --TODO: show/hide hidden items
-        ["[g"] = "prev_git_modified",     --TODO: jump to prev git-modified file
-        ["]g"] = "next_git_modified",     --TODO: jump to next git-modified file
-        ["i"] = "show_file_details",     --TODO: display file metadata
-        ["oc"] = "order_by_created",      --TODO: sort by created date
-        ["od"] = "order_by_diagnostics",  --TODO: sort by diagnostics
-        ["og"] = "order_by_git_status",   --TODO: sort by git status
-        ["om"] = "order_by_modified",     --TODO: sort by modified date
-        ["on"] = "order_by_name",         --TODO: sort by name
-        ["os"] = "order_by_size",         --TODO: sort by size
-        ["ot"] = "order_by_type",         --TODO: sort by type
+        ["<bs>"] = "navigate_up",           --move root dir up one level
+        ["."] = "set_root",              --set root to selected folder
+        ["/"] = "fuzzy_finder",          --recursive filter
+        ["D"] = "fuzzy_finder_directory", --filter directories only
+        ["#"] = "fuzzy_sorter",          --sort by fzy algorithm
+        ["f"] = "filter_on_submit",      --apply filter on submit
+        ["<C-c>"] = "clear_filter",          --clear filter
+        ["H"] = "toggle_hidden",         --show/hide hidden items
+        ["[g"] = "prev_git_modified",     --jump to prev git-modified file
+        ["]g"] = "next_git_modified",     --jump to next git-modified file
+        ["i"] = "show_file_details",     --display file metadata
+        ["oc"] = "order_by_created",      --sort by created date
+        ["od"] = "order_by_diagnostics",  --sort by diagnostics
+        ["og"] = "order_by_git_status",   --sort by git status
+        ["om"] = "order_by_modified",     --sort by modified date
+        ["on"] = "order_by_name",         --sort by name
+        ["os"] = "order_by_size",         --sort by size
+        ["ot"] = "order_by_type",         --sort by type
       },
     },
   },
   buffers = {
     window = {
       mappings = {
-        ["<bs>"] = "navigate_up",           --TODO: move root dir up one level
-        ["."] = "set_root",              --TODO: set root to selected folder
-        ["bd"] = "buffer_delete",         --TODO: delete buffer
-        ["i"] = "show_file_details",     --TODO: display file metadata
+        ["<bs>"] = "navigate_up",           --move root dir up one level
+        ["."] = "set_root",              --set root to selected folder
+        ["bd"] = "buffer_delete",         --delete buffer
+        ["i"] = "show_file_details",     --display file metadata
       },
     },
   },
   git_status = {
     window = {
       mappings = {
-        ["gA"] = "git_add_all",           --TODO: stage all changes
-        ["ga"] = "git_add_file",          --TODO: stage file
-        ["gu"] = "git_unstage_file",      --TODO: unstage file
-        ["gU"] = "git_undo_last_commit",  --TODO: undo last commit
-        ["gr"] = "git_revert_file",       --TODO: revert file changes
-        ["gc"] = "git_commit",            --TODO: create commit
-        ["gp"] = "git_push",              --TODO: push changes
-        ["gg"] = "git_commit_and_push",   --TODO: commit and push
-        ["gt"] = "git_toggle_file_stage", --TODO: toggle file staged status
+        ["gA"] = "git_add_all",           --stage all changes
+        ["ga"] = "git_add_file",          --stage file
+        ["gu"] = "git_unstage_file",      --unstage file
+        ["gU"] = "git_undo_last_commit",  --undo last commit
+        ["gr"] = "git_revert_file",       --revert file changes
+        ["gc"] = "git_commit",            --create commit
+        ["gp"] = "git_push",              --push changes
+        ["gg"] = "git_commit_and_push",   --commit and push
+        ["gt"] = "git_toggle_file_stage", --toggle file staged status
       },
     },
   },
@@ -69,42 +69,42 @@ require("neo-tree").setup({
         "toggle_node",             
         nowait = false,
       },
-      ["<2-LeftMouse>"] = "open",       --TODO: open file/expand folder (mouse)
-      ["<cr>"] = "open",                --TODO: open file/expand folder (enter)
-      ["C"] = "close_node",              --TODO: close node or parent
-      ["z"] = "close_all_nodes",         --TODO: collapse all nodes
+      ["<2-LeftMouse>"] = "open",       --open file/expand folder (mouse)
+      ["<cr>"] = "open",                --open file/expand folder (enter)
+      ["C"] = "close_node",              --close node or parent
+      ["z"] = "close_all_nodes",         --collapse all nodes
 
       -- Preview
-      ["P"] = "toggle_preview",          --TODO: toggle preview mode
-      ["l"] = "focus_preview",           --TODO: focus preview window
-      ["<C-d>"] = "scroll_preview",          --TODO: scroll preview down
-      ["<C-u>"] = "scroll_preview",          --TODO: scroll preview up (reverse)
-      ["<esc>"] = "cancel",                  --TODO: close preview or float
+      ["P"] = "toggle_preview",          --toggle preview mode
+      ["l"] = "focus_preview",           --focus preview window
+      ["<C-d>"] = "scroll_preview",          --scroll preview down
+      ["<C-u>"] = "scroll_preview",          --scroll preview up (reverse)
+      ["<esc>"] = "cancel",                  --close preview or float
 
       -- File operations
-      ["a"] = "add",                     --TODO: create new file/directory
-      ["A"] = "add_directory",           --TODO: create new directory
-      ["d"] = "delete",                  --TODO: delete file/folder
-      ["r"] = "rename",                  --TODO: rename file/folder
-      ["y"] = "copy_to_clipboard",       --TODO: mark for copying
-      ["x"] = "cut_to_clipboard",        --TODO: mark for cutting
-      ["p"] = "paste_from_clipboard",    --TODO: paste marked files
-      ["<C-x>"] = "clear_clipboard",         --TODO: clear clipboard
-      ["c"] = "copy",                    --TODO: copy file/folder
-      ["m"] = "move",                    --TODO: move file/folder
+      ["a"] = "add",                     --create new file/directory
+      ["A"] = "add_directory",           --create new directory
+      ["d"] = "delete",                  --delete file/folder
+      ["r"] = "rename",                  --rename file/folder
+      ["y"] = "copy_to_clipboard",       --mark for copying
+      ["x"] = "cut_to_clipboard",        --mark for cutting
+      ["p"] = "paste_from_clipboard",    --paste marked files
+      ["<C-x>"] = "clear_clipboard",         --clear clipboard
+      ["c"] = "copy",                    --copy file/folder
+      ["m"] = "move",                    --move file/folder
 
       -- Open in splits/tabs
-      ["s"] = "open_split",              --TODO: open in horizontal split
-      ["v"] = "open_vsplit",             --TODO: open in vertical split
-      ["t"] = "open_tabnew",             --TODO: open in new tab
-      ["w"] = "open_with_window_picker", --TODO: pick window to open in
+      ["s"] = "open_split",              --open in horizontal split
+      ["v"] = "open_vsplit",             --open in vertical split
+      ["t"] = "open_tabnew",             --open in new tab
+      ["w"] = "open_with_window_picker", --pick window to open in
 
       -- Other
-      ["q"] = "close_window",            --TODO: close neo-tree window
-      ["R"] = "refresh",                 --TODO: refresh tree
-      ["?"] = "show_help",              --TODO: show mappings popup
-      ["<"] = "prev_source",             --TODO: switch to prev source
-      [">"] = "next_source",             --TODO: switch to next source
+      ["q"] = "close_window",            --close neo-tree window
+      ["R"] = "refresh",                 --refresh tree
+      ["?"] = "show_help",              --show mappings popup
+      ["<"] = "prev_source",             --switch to prev source
+      [">"] = "next_source",             --switch to next source
     },
   },
 })
