@@ -4,14 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a Neovim configuration ("nnvim") — a minimal, plugin-free setup. It can run as the default `nvim` config or side-by-side via `NVIM_APPNAME=nnvim nvim`.
+This is a Neovim 0.12+ configuration. It can run as the default `nvim` config or side-by-side via `NVIM_APPNAME=nnvim nvim`.
 
 ## Architecture
 
-- `init.lua` — Entry point. Loads `config.options` then `config.keymaps`.
-- `lua/config/options.lua` — Global editor options and colorscheme (`sorbet`).
+- `init.lua` — Entry point. Loads `config.options`, `config.keymaps`, `config.filetypes`, `config.plugins`.
+- `lua/config/options.lua` — Global editor options, colorscheme (`sorbet`), folding, and statuscolumn.
 - `lua/config/keymaps.lua` — Key mappings. Leader is `<Space>`. Convention: `<leader><namespace><action>` (e.g., `<leader>t` = toggle namespace).
-- `after/ftplugin/` — Filetype-specific overrides (e.g., `markdown.lua` enables spell, wrap, linebreak).
+- `lua/config/plugins.lua` — Plugin management via `vim.pack` and plugin configuration (neo-tree).
+- `after/ftplugin/` — Filetype-specific overrides (e.g., `markdown.lua` for Harper LSP, Prettier formatting, heading navigation and highlights).
 
 ## External Dependencies
 
