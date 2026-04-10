@@ -3,7 +3,12 @@ vim.pack.add({
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-neo-tree/neo-tree.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
 })
+
+require("treesitter-context").setup()
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#363841" })
+vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { fg = "#8787af", bg = "#363841" })
 
 require("neo-tree").setup({
   filesystem = {
