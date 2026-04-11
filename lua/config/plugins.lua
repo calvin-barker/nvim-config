@@ -10,11 +10,18 @@ require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#363841" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { fg = "#8787af", bg = "#363841" })
 
+-- Neo-tree styling
+vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#87afd7" })
+vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#87afd7" })
+vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#626262" })
+vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#dadada", bold = true })
+vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "#d7af5f" })
+
 require("neo-tree").setup({
   filesystem = {
     filtered_items = {
       visible = true,
-      hide_dotfiles = false,
+      hide_dotfiles = true,
     },
     window = {
       mappings = {
