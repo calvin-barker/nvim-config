@@ -4,11 +4,28 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-neo-tree/neo-tree.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  "https://github.com/nvim-telescope/telescope.nvim",
+  "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 })
 
 require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#363841" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { fg = "#8787af", bg = "#363841" })
+
+-- Telescope fuzzy finder
+require("telescope").setup({
+  extensions = {
+    fzf = {},
+  },
+})
+require("telescope").load_extension("fzf")
+
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
+vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Find string under cursor/selection" })
 
 -- Neo-tree styling
 vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#87afd7" })
@@ -18,7 +35,9 @@ vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#dadada", bold = true })
 vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "#d7af5f" })
 
 require("neo-tree").setup({
+  git_status_async = true,
   filesystem = {
+    use_libuv_file_watcher = true,
     filtered_items = {
       visible = true,
       hide_dotfiles = true,

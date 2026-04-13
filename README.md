@@ -5,8 +5,10 @@ My **shiny and new** `nvim` config as of March 2026.
 ## Dependencies
 
 ```sh
-brew install neovim harper prettier
+brew install neovim harper prettier ripgrep
 ```
+
+`ripgrep` is required for Telescope's live grep (`<leader>fg`).
 
 ## Getting Started
 

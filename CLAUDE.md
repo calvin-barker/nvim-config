@@ -21,6 +21,7 @@ Installed via Homebrew. Keep this list updated when adding features that require
 - `neovim` — editor (0.12+)
 - `harper` — grammar/spell checker LSP for markdown (`harper-ls`)
 - `prettier` — markdown autoformatting
+- `ripgrep` — required by Telescope for live grep
 
 ## Conventions
 
