@@ -8,7 +8,12 @@ vim.pack.add({
   "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
   "https://github.com/williamboman/mason.nvim",
   "https://github.com/williamboman/mason-lspconfig.nvim",
+  "https://github.com/folke/flash.nvim",
 })
+
+require("flash").setup()
+vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash jump" })
+vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash treesitter" })
 
 require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#363841" })
