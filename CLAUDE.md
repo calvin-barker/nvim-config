@@ -10,18 +10,20 @@ This is a Neovim 0.12+ configuration. It can run as the default `nvim` config or
 
 - `init.lua` — Entry point. Loads `config.options`, `config.keymaps`, `config.filetypes`, `config.plugins`.
 - `lua/config/options.lua` — Global editor options, colorscheme (`sorbet`), folding, and statuscolumn.
-- `lua/config/keymaps.lua` — Key mappings. Leader is `<Space>`. Convention: `<leader><namespace><action>` (e.g., `<leader>t` = toggle namespace).
-- `lua/config/plugins.lua` — Plugin management via `vim.pack` and plugin configuration (neo-tree).
-- `after/ftplugin/` — Filetype-specific overrides (e.g., `markdown.lua` for Harper LSP, Prettier formatting, heading navigation and highlights).
+- `lua/config/keymaps.lua` — Key mappings. Leader is `<Space>`. Convention: `<leader><namespace><action>` (e.g., `<leader>t` = toggle namespace, `<leader>f` = find, `<leader>g` = go-to).
+- `lua/config/plugins.lua` — Plugin management via `vim.pack` and plugin configuration (neo-tree, telescope, Mason, LSP via `vim.lsp.enable()`).
+- `after/ftplugin/` — Filetype-specific overrides (e.g., `markdown.lua` for Prettier formatting, heading navigation and highlights).
 
 ## External Dependencies
 
 Installed via Homebrew. Keep this list updated when adding features that require external tools.
 
 - `neovim` — editor (0.12+)
-- `harper` — grammar/spell checker LSP for markdown (`harper-ls`)
+- `harper` — grammar/spell checker LSP for markdown (`harper-ls`, also managed by Mason)
 - `prettier` — markdown autoformatting
 - `ripgrep` — required by Telescope for live grep
+
+LSP servers (jedi_language_server, harper_ls) are managed by Mason and auto-installed on first launch.
 
 ## Conventions
 

@@ -6,6 +6,8 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/nvim-telescope/telescope.nvim",
   "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+  "https://github.com/williamboman/mason.nvim",
+  "https://github.com/williamboman/mason-lspconfig.nvim",
 })
 
 require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })
@@ -26,6 +28,45 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
 vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Find string under cursor/selection" })
+
+-- Mason + LSP
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "jedi_language_server", "harper_ls" },
+})
+
+-- LSP keymaps — attached when an LSP server connects to a buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf }
+    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to definition" }))
+    vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Go to references" }))
+    vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "Go to declaration" }))
+    vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "Go to implementation" }))
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover documentation" }))
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename symbol" }))
+    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code action" }))
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("force", opts, { desc = "Next diagnostic" }))
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("force", opts, { desc = "Prev diagnostic" }))
+    vim.keymap.set("n", "<leader>d", function() vim.diagnostic.open_float({ focus = false }) end, vim.tbl_extend("force", opts, { desc = "Show diagnostic" }))
+  end,
+})
+
+-- Configure LSP servers via built-in vim.lsp.config (Neovim 0.12+)
+vim.lsp.config("jedi_language_server", {
+  cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/jedi-language-server") },
+  filetypes = { "python" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+})
+
+vim.lsp.config("harper_ls", {
+  cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/harper-ls"), "--stdio" },
+  filetypes = { "markdown" },
+  root_markers = { ".git" },
+})
+
+vim.lsp.enable("jedi_language_server")
+vim.lsp.enable("harper_ls")
 
 -- Neo-tree styling
 vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#87afd7" })

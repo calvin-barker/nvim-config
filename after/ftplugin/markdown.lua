@@ -1,15 +1,5 @@
--- Harper grammar/spell checker via built-in LSP.
--- Replaces vim.opt_local.spell since Harper provides better coverage.
-vim.lsp.start({
-  name = "harper-ls",
-  cmd = { "harper-ls", "--stdio" },
-})
-
--- LSP diagnostics keymaps
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = true, desc = "next diagnostic" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = true, desc = "prev diagnostic" })
-vim.keymap.set("n", "<leader>d", function() vim.diagnostic.open_float({ focus = false }) end, { buffer = true, desc = "show diagnostic detail" })
-vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { buffer = true, desc = "spelling/grammar suggestions" })
+-- Harper grammar/spell checker is managed via mason-lspconfig in plugins.lua.
+-- LSP keymaps (go-to, code action, diagnostics) are in the LspAttach autocmd in plugins.lua.
 
 
 -- Format with Prettier on save and via keymap

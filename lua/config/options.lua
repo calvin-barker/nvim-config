@@ -57,3 +57,7 @@ end
 vim.o.statuscolumn = "%!v:lua.statuscolumn()"
 
 vim.cmd.colorscheme("sorbet")
+
+-- Fix float windows (hover, diagnostics) to use a dark background
+vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#dadada", bg = "#363841" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#5f5f87", bg = "#363841" })
