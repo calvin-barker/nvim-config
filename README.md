@@ -16,7 +16,7 @@ As the default `nvim` config:
 
 ```sh
 # Clone the config repo.
-git clone https://github.com/calvin-barker/nvim ~/.config/nvim
+git clone https://github.com/calvin-barker/nvim-config ~/.config/nvim
 
 # Start Neovim.
 nvim

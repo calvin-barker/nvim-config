@@ -71,7 +71,8 @@ vim.lsp.config("harper_ls", {
 })
 
 vim.lsp.enable("jedi_language_server")
-vim.lsp.enable("harper_ls")
+-- harper_ls disabled: diagnostic noise unwanted in shared repos
+-- vim.lsp.enable("harper_ls")
 
 -- Neo-tree styling
 vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#87afd7" })

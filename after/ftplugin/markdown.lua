@@ -4,17 +4,17 @@
 
 -- Format with Prettier on save and via keymap
 vim.opt_local.formatprg = "prettier --parser markdown --prose-wrap always --print-width 120"
-vim.api.nvim_create_autocmd("BufWritePre", {
-  buffer = 0,
-  callback = function()
-    local cursor = vim.api.nvim_win_get_cursor(0)
-    vim.cmd("silent! %!prettier --parser markdown --prose-wrap always --print-width 120")
-    -- Restore cursor, clamping to new line count
-    local last = vim.fn.line("$")
-    cursor[1] = math.min(cursor[1], last)
-    vim.api.nvim_win_set_cursor(0, cursor)
-  end,
-})
+-- Auto-format disabled: causes noisy diffs in shared repos
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   buffer = 0,
+--   callback = function()
+--     local cursor = vim.api.nvim_win_get_cursor(0)
+--     vim.cmd("silent! %!prettier --parser markdown --prose-wrap always --print-width 120")
+--     local last = vim.fn.line("$")
+--     cursor[1] = math.min(cursor[1], last)
+--     vim.api.nvim_win_set_cursor(0, cursor)
+--   end,
+-- })
 
 -- Heading navigation: ]h / [h
 -- On a heading: jumps to the next/prev heading at the same level (e.g. ## -> ##)
