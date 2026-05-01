@@ -35,6 +35,8 @@ opt.spelllang = {"en_us"}
 
 opt.undofile = true
 
+opt.clipboard = "unnamedplus"
+
 -- Treesitter-based folding with chevron indicators
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
